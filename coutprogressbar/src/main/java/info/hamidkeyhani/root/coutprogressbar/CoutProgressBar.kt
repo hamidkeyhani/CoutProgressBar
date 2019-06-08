@@ -28,7 +28,7 @@ class CoutProgressBar(viewGroup: ViewGroup , context: Context){
         val params = RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
         )
-        params.addRule(RelativeLayout.CENTER_IN_PARENT, container.getId())
+        params.addRule(RelativeLayout.CENTER_IN_PARENT, container.id)
 
         image6 = container.findViewById(R.id.lens6)
         image12 = container.findViewById(R.id.lens12)
@@ -40,7 +40,7 @@ class CoutProgressBar(viewGroup: ViewGroup , context: Context){
         viewGroup.addView(container, params)
     }
 
-    fun dismis() {
+    fun dismiss() {
         rotateAnimation?.cancel()
         container.visibility = View.GONE
     }
@@ -51,6 +51,13 @@ class CoutProgressBar(viewGroup: ViewGroup , context: Context){
         image12.startAnimation(setAnimation(700, 1000))
         image6.startAnimation(setAnimation(900, 800))
         container.visibility = View.VISIBLE
+    }
+
+    fun setColor(color:Int){
+        image24.setColorFilter(container.context.resources.getColor(color))
+        image18.setColorFilter(container.context.resources.getColor(color))
+        image12.setColorFilter(container.context.resources.getColor(color))
+        image6.setColorFilter(container.context.resources.getColor(color))
     }
 
     private fun setAnimation(offSet: Long, duration: Long): RotateAnimation {
