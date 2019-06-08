@@ -10,16 +10,14 @@ import android.widget.Button;
 
 public class CoutProgressBarActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private CoutProgressBar coutProgressBar;
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(newBase);
         MultiDex.install(this);
     }
 
-    private CoutProgressBar coutProgressBar;
-    private Button change_color;
-    private Button dismiss;
-    private Button show;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,15 +25,17 @@ public class CoutProgressBarActivity extends AppCompatActivity implements View.O
 
         // init views
         ConstraintLayout layout = findViewById(R.id.layout);
-        show = findViewById(R.id.show);
-        dismiss = findViewById(R.id.dismis);
-        change_color = findViewById(R.id.change_color);
+        Button show = findViewById(R.id.show);
+        Button dismiss = findViewById(R.id.dismis);
+        Button change_color = findViewById(R.id.change_color);
+        Button speed = findViewById(R.id.speed);
 
         coutProgressBar = new CoutProgressBar(layout, this);
 
         show.setOnClickListener(this);
         change_color.setOnClickListener(this);
         dismiss.setOnClickListener(this);
+        speed.setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +49,9 @@ public class CoutProgressBarActivity extends AppCompatActivity implements View.O
                 break;
             case R.id.dismis:
                 coutProgressBar.dismiss();
+                break;
+            case R.id.speed:
+                coutProgressBar.enCreaseSpeed(2);
                 break;
         }
     }

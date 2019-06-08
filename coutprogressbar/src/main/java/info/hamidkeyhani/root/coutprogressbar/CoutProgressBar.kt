@@ -60,6 +60,13 @@ class CoutProgressBar(viewGroup: ViewGroup , context: Context){
         image6.setColorFilter(container.context.resources.getColor(color))
     }
 
+    fun enCreaseSpeed(speed: Long) {
+        image24.startAnimation(setAnimation(0, 1700 / speed))
+        image18.startAnimation(setAnimation(400 / speed, 1300 / speed))
+        image12.startAnimation(setAnimation(700 / speed, 1000 / speed))
+        image6.startAnimation(setAnimation(900 / speed, 800 / speed))
+    }
+
     private fun setAnimation(offSet: Long, duration: Long): RotateAnimation {
         val rotateAnimation = RotateAnimation(
                 0f, 360f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 1.5f
