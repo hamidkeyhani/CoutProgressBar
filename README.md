@@ -1,21 +1,21 @@
 # CoutProgressBar
 ![](coutgif.gif)
 
-Use Easily :)
+Use easily :)
 
-Declare A Private Variable In Activity Or Fragment Or etc
+Declare a private variable in activity or fragment or etc
 ```java
 private CoutProgressBar coutProgressBar;
 ```
-In Constructor Or onCreateView Or etc :
+In constructor cr onCreateView cr etc :
 ```java
 coutProgressBar = new CoutProgressBar(your_root_layout , context);
 ```
-For Show :
+For show :
 ```java
 coutProgressBar.show();
 ```
-For Hide :
+For hide :
 ```java
 coutProgressBar.dismis();
 ```
